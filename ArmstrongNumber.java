@@ -1,33 +1,22 @@
-package Array;
+package OOP_array_midterm;
 
 public class ArmstrongNumber {
+    public static void main(String[] args) {
+        System.out.println(isArmstrong(153)); // Expected: true
+        System.out.println(isArmstrong(123)); // Expected: false
+    }
+
     public static boolean isArmstrong(int number) {
-        int original = number, sum = 0;
-        int digits = String.valueOf(number).length();
+        int original = number;
+        int sum = 0;
 
         while (number > 0) {
             int digit = number % 10;
-            sum += Math.pow(digit, digits);
+            sum += Math.pow(digit, 3);
             number /= 10;
         }
 
         return sum == original;
-    }
-
-    public static void main(String[] args) {
-        int num = 9474;
-        if (isArmstrong(num)) {
-            System.out.println(num + " is an Armstrong number.");
-        } else {
-            System.out.println(num + " is not an Armstrong number.");
-        }
-
-        System.out.println("Armstrong numbers between 1 and 1000:");
-        for (int i = 1; i <= 1000; i++) {
-            if (isArmstrong(i)) {
-                System.out.print(i + " ");
-            }
-        }
     }
 }
 

@@ -1,47 +1,41 @@
-package Array;
+package OOP_array_midterm;
 
 import java.util.Scanner;
 
 public class SimpleCalculator {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter two numbers:");
+        double num1 = scan.nextDouble();
+        double num2 = scan.nextDouble();
 
-        System.out.println("Enter first number: ");
-        double num1 = scanner.nextDouble();
+        System.out.println("Choose operation (+, -, *, /):");
+        char operator = scan.next().charAt(0);
 
-        System.out.println("Enter second number: ");
-        double num2 = scanner.nextDouble();
-
-        System.out.println("Select operation: ");
-        System.out.println("1. Addition (+)");
-        System.out.println("2. Subtraction (-)");
-        System.out.println("3. Multiplication (*)");
-        System.out.println("4. Division (/)");
-        int operation = scanner.nextInt();
-
-        double result = 0;
-        switch (operation) {
-            case 1:
+        double result;
+        switch (operator) {
+            case '+':
                 result = num1 + num2;
                 break;
-            case 2:
+            case '-':
                 result = num1 - num2;
                 break;
-            case 3:
+            case '*':
                 result = num1 * num2;
                 break;
-            case 4:
+            case '/':
                 if (num2 != 0) {
                     result = num1 / num2;
                 } else {
-                    System.out.println("Error: Division by zero.");
+                    System.out.println("Division by zero is not allowed.");
                     return;
                 }
                 break;
             default:
-                System.out.println("Invalid operation.");
+                System.out.println("Invalid operator.");
                 return;
         }
-        System.out.println("The result is: " + result);
+        System.out.println("Result: " + result);
     }
 }
+
